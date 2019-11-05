@@ -86,14 +86,18 @@ class Graph:
                     s.push(next_vertex)
             # it push watever that is inside it and works with the stack
             # then as it moves from one point to another the stacks add to itself
-    def dft_recursive(self, starting_vertex, visited = set()):
+    def dft_recursive(self, starting_vertex, visited = None):
         """
         Print each vertex in depth-first order
         beginning from starting_vertex.
         This should be done using recursion.
         """
+        # the stack was eliminated because visited was ok 
+        # and since we are working on the whatever we get immediately
         # if not starting_vertex:
         #     return
+        if visited is None:
+            visited = set()
         print(starting_vertex)
         visited.add(starting_vertex)
         for i in self.vertices[starting_vertex]:
