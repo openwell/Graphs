@@ -47,16 +47,21 @@ def get_neighbors(word):
 # along with any helper functions you need
 def find_word_ladder(beginWord, endWord):
     # create a queue
-    q = Queue()
+    # q = Queue()
+    q = []
     # enqueue a list holding the starting vertex id
-    q.enqueue([beginWord])
+    # q.enqueue([beginWord])
+    q.append([beginWord])
     # created an empty visited set
     visited = set()
     # while the queue is not empty
-    while q.size() > 0:
-        print(q.size())
+    # while q.size() > 0:
+    while len(q) > 0:
+        # print(q.size())
         # dequeue to the path
-        path = q.dequeue() #bring out the first on d line
+        # path = q.dequeue() #bring out the first on d line
+        path = q.pop(0) 
+        # print(path)
         # set a vert to the last item in the path
         vert = path[-1]  #bring out last in d array
         # if vert is not in visited
@@ -76,7 +81,8 @@ def find_word_ladder(beginWord, endWord):
                 # append next vert to new path
                 new_path.append(next_vert)
                 # enqueue the new path
-                q.enqueue(new_path)
+                q.append(new_path)
+    
 
 # the get_neighbors generates a an array of possible words based on the 
 # the last word on the enqueue array
